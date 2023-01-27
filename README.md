@@ -6,9 +6,6 @@ Run:
 ----
     python isc-dhcp-api.py
 
-MAC Encode :
----------
-    76:e6:a2:4b:b2:62 --> 76%3Ae6%3Aa2%3A4b%3Ab2%3A62 (: --> %3A)
 
 API List :
 ---------
@@ -17,13 +14,13 @@ API List :
 
 Create a static DHCP lease
 
-    curl -d "hostname=test&mac=76%3Ae6%3Aa2%3A4b%3Ab2%3A62&ip=192.168.1.51" -X POST http://localhost:8080/addfix
+    curl -d '{ "hostname": "test", "mac": "76:e6:a2:4b:b2:62", "ip": "192.168.1.51" }' -X POST http://localhost:8080/dhcp/addfix -H 'Content-Type: application/json'
 
 **DELETE static Leases:**
 
 Delete a static DHCP lease
 
-    curl -d "hostname=test&mac=76%3Ae6%3Aa2%3A4b%3Ab2%3A62" -X POST http://localhost:8080/deletefix
+    curl -d '{ "hostname": "test", "mac": "76:e6:a2:4b:b2:62", "ip": "192.168.1.51" }' -X POST http://localhost:8080/dhcp/deletefix -H 'Content-Type: application/json'
 
 **Scope:**
 
