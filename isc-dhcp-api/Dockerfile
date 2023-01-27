@@ -12,5 +12,5 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8080
 
-CMD ["python", "isc-dhcp-api.py"]
+CMD ["python", "-u", "isc-dhcp-api.py"]
 
